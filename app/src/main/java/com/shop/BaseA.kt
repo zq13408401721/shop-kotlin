@@ -3,9 +3,6 @@ package com.shop
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.RestrictTo
-import androidx.databinding.DataBindingUtil
-import androidx.work.WorkManager
 import com.shop.ui.login.Result
 import kotlinx.coroutines.*
 import java.io.BufferedReader
@@ -44,16 +41,16 @@ class BaseA : AppCompatActivity() {
 
     //suspend 定义的方法
     suspend fun getHome(){
-        val result = get("http://cdplay.cn/api/index")
+        val result = get("https://cdplay.cn/api/index")
         Log.d("TAG",result.toString());
     }
     suspend fun get(net:String) = withContext(Dispatchers.IO){
         val url = URL(net)
-        var httpConnect = url.openConnection() as? HttpURLConnection
+        var httpConnect = url.openConnection() as? HttpsURLConnection
         httpConnect.run {
 
         }
-        (url.openConnection() as? HttpURLConnection)?.run {
+        (url.openConnection() as? HttpsURLConnection)?.run {
             requestMethod = "GET"
             setRequestProperty("Content-Type","application/json;utf-8")
             setRequestProperty("Accept","application/json")
