@@ -1,5 +1,6 @@
 package com.shop.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.shop.model.HomeData
@@ -12,6 +13,7 @@ import java.net.URL
 
 class NewBindViewModel:ViewModel() {
 
+    var status:MutableLiveData<Int> = MutableLiveData()
     var title:String? = "title"
 
     fun homeData(){
@@ -24,6 +26,7 @@ class NewBindViewModel:ViewModel() {
         var homeData = get("https://cdplay.cn/api/index")
         if(homeData != null){
             title = homeData.data.hotGoodsList.get(0).name
+            status.postValue(0)
         }
     }
 
