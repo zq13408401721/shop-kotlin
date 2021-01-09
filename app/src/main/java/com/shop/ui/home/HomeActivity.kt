@@ -31,6 +31,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun loadHomeData() {
+
+        runBlocking {  }
         var thread_name = Thread.currentThread().name
         MainScope().launch {
             var thread_name1 = Thread.currentThread().name
