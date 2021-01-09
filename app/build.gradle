@@ -73,7 +73,7 @@ dependencies {
     //viewModelScope
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-beta01'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
-
+    // 数据绑定访问BR的环境
     kapt  "com.android.databinding:compiler:3.5.0"
 
     /*def work_version = "2.4.0"
