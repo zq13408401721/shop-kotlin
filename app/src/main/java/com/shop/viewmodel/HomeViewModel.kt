@@ -27,10 +27,6 @@ class HomeViewModel:ViewModel() {
     //网络请求的状态值  -1 网络请求错误
     var loadStatue:MutableLiveData<Int> = MutableLiveData()
 
-
-
-
-
     /**
      * 加载首页数据
      */
