@@ -19,10 +19,10 @@ abstract class BaseFragment<VM:BaseViewModel,DB:ViewDataBinding>(var layoutId:In
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(layoutId,container)
-        mDataBinding = DataBindingUtil.bind<DB>(view)!!
+        mDataBinding = DataBindingUtil.inflate(inflater,layoutId,container,false)
         mViewModel = ViewModelProvider(this).get(vmClass)
-        return view
+        var mView = mDataBinding.root
+        return mView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
