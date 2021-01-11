@@ -5,14 +5,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shop.IView
+import com.shop.test.IView
 
 /**
  * baseactivity基类
  */
-abstract class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding>(var layoutId:Int,val vmClass:Class<VM>):AppCompatActivity(),IView {
+abstract class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding>(var layoutId:Int,val vmClass:Class<VM>):AppCompatActivity(),
+    IView {
 
     protected lateinit var mViewModel:VM
     protected lateinit var mDataBinding:DB

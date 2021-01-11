@@ -1,4 +1,4 @@
-package com.shop
+package com.shop.test
 
 interface IView {
 

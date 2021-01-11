@@ -53,8 +53,8 @@ class RetrofitFactory {
         return OkHttpClient.Builder()
                 .addInterceptor(LoggingInterceptor())
                 //.addInterceptor(interceptor)
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(6, TimeUnit.SECONDS)
+                .readTimeout(6, TimeUnit.SECONDS)
                 .build()
     }
 

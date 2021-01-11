@@ -2,6 +2,8 @@ package com.shop
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.shop.net.Injection
+import com.shop.utils.DataBaseUtils
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,5 +22,13 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.shop", appContext.packageName)
+    }
+
+    @Test
+    fun useLasy(){
+        println(Injection.myRepository)
+        println(Injection.myRepository)
+        println(Injection.myRepository)
+        println(Injection.myRepository)
     }
 }

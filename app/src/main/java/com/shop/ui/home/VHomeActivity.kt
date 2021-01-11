@@ -1,12 +1,7 @@
 package com.shop.ui.home
 
-import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.shop.BR
-import com.shop.BaseA
 import com.shop.R
 import com.shop.base.BaseActivity
 import com.shop.databinding.ActivityVHomeBinding
@@ -20,7 +15,6 @@ class VHomeActivity:BaseActivity<HomeViewModel,ActivityVHomeBinding>(R.layout.ac
     override fun initVM() {
         mViewModel.homeData.observe(this, Observer {
             mDataBinding.setVariable(BR.vmHome,it)
-            mDataBinding.txtTitle.setText("xxx")
         })
     }
 

@@ -1,14 +1,13 @@
-package com.shop
+package com.shop.test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.shop.R
 import com.shop.ui.login.Result
 import kotlinx.coroutines.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.lang.Exception
-import java.net.HttpURLConnection
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
 
@@ -34,7 +33,7 @@ class BaseA : AppCompatActivity() {
     }
 
     fun testExt(){
-        var user = User("小明",20)
+        //var user = User("小明",20)
     }
 
 
