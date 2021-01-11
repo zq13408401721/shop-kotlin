@@ -25,7 +25,7 @@ class BindHomeViewModel:ViewModel() {
     suspend fun loadData(){
         var homeData = get("https://cdplay.cn/api/index")
         if(homeData != null){
-            brand.postValue(homeData.data.brandList)
+
         }else{
         }
     }

@@ -1,4 +1,4 @@
 package com.kotlin.basemvvm.view
 
-class BaseActivity {
+abstract class BaseActivity(layoutId: Int){
 }

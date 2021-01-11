@@ -7,14 +7,17 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
+import com.kotlin.basemvvm.ext.bindView
 import com.kotlin.basemvvm.mvvm.IBaseView
 
 /**
  *  activity对应的基类
  */
-abstract class AbsActivity(val layoutId:Int):AppCompatActivity(layoutId),IBaseView {
+abstract class AbsActivity<VM:ViewModel>(val layoutId:Int):AppCompatActivity(layoutId),IBaseView {
 
     protected var TAG = this.javaClass.simpleName
+
     protected lateinit var mActivity:Activity
     protected lateinit var mContext: Context
     protected var loadDialog:Dialog? = null
@@ -32,10 +35,8 @@ abstract class AbsActivity(val layoutId:Int):AppCompatActivity(layoutId),IBaseVi
     }
 
     override fun showLoading() {
-        TODO("Not yet implemented")
     }
 
     override fun dissLoading() {
-        TODO("Not yet implemented")
     }
 }

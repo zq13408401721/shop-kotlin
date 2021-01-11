@@ -37,8 +37,6 @@ class HomeActivity : AppCompatActivity() {
         MainScope().launch {
             var thread_name1 = Thread.currentThread().name
             var result = homeData()
-            Log.i("TAG",result.errmsg);
-            showBanner(result.data.banner)
         }
         Log.d("TAG","loadHomeData")
     }

@@ -1,12 +1,6 @@
 package com.shop.model
 
 data class HomeData(
-    val `data`: Data,
-    val errmsg: String,
-    val errno: Int
-)
-
-data class Data(
     val banner: List<Banner>,
     val brandList: List<Brand>,
     val categoryList: List<Category>,

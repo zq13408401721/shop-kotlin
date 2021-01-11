@@ -25,7 +25,6 @@ class NewBindViewModel:ViewModel() {
     suspend fun loadData(){
         var homeData = get("https://cdplay.cn/api/index")
         if(homeData != null){
-            title = homeData.data.hotGoodsList.get(0).name
             status.postValue(0)
         }
     }
