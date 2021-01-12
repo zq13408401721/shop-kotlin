@@ -1,16 +1,21 @@
 package com.shop.test;
 
-public class MyClass {
+import android.view.View;
 
-    private void test(int index){
-        if(index > 0){
-            boolean bool = A(index);
-            if(bool) return;
-        }
+import androidx.databinding.ViewDataBinding;
+
+public class MyClass extends BaseClass{
+
+    private ViewDataBinding binding;
+
+    public MyClass(ViewDataBinding binding){
+        super(binding.getRoot());
+        this.binding = binding;
     }
 
-    private boolean A(int index){
-        if(index == 1) return true;
-        return false;
+
+    public void test(){
+
     }
+
 }

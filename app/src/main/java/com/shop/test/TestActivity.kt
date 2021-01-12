@@ -3,7 +3,9 @@ package com.shop.test
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.util.SparseArray
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager.widget.ViewPager
@@ -39,10 +41,13 @@ class TestActivity : AppCompatActivity() {
         GlobalScope.launch {
             var home = loadData("https://cdplay.cn/api/index")
             handler.post(Runnable {
-                //封装xml布局界面的id和界面中需要绑定的数据对应的id
+                //封装xml布局界面的id和界面中需要绑定的数据对应的id hashmap
                 var array = SparseArray<Int>()
                 array.put(R.layout.layout_hotgood,BR.vmHotGood)
-                adapter = TestAdapter(context,home.data.hotGoodsList,array)
+                array.put(R.layout.layout_hotgood_noimage,BR.vmHotGoodNoImage)
+                var clickEvt = SparseArray<Int>()
+                //clickEvt.put(BR)
+                adapter = TestAdapter(context,home.data.hotGoodsList,array,clickEvt)
                 recy.adapter = adapter
             })
         }
@@ -52,5 +57,11 @@ class TestActivity : AppCompatActivity() {
     suspend fun loadData(str:String) = withContext(Dispatchers.IO){
         var url = URL(str).readText(charset("utf-8"))
         return@withContext Gson().fromJson<Home>(url, Home::class.java)
+    }
+
+    inner class Click{
+        public fun itemClick(v:View){
+            Log.i("TAG","onclick")
+        }
     }
 }
