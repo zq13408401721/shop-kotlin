@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shop.BR
 import com.shop.R
 import com.shop.model.Brand
+import com.shop.test.User
 
 class BindHomeAdapter(var context:Context,var list:List<Brand> = listOf<Brand>()): RecyclerView.Adapter<BaseViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {

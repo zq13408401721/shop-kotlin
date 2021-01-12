@@ -2,6 +2,7 @@ package com.shop.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.shop.model.Brand
 import com.shop.model.HomeData
@@ -19,6 +20,9 @@ class BindHomeViewModel:ViewModel() {
     fun homeData(){
         GlobalScope.launch {
             loadData()
+        }
+        viewModelScope.launch {
+
         }
     }
 

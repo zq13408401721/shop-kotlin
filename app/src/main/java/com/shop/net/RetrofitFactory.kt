@@ -1,6 +1,7 @@
 package com.shop.net
 
 import android.util.Log
+import com.shop.api.ServiceApi
 import com.shop.app.Constants
 import com.shop.utils.MyMmkv
 import okhttp3.Interceptor
@@ -77,4 +78,6 @@ class RetrofitFactory {
     fun <T> create(service:Class<T>):T{
         return retrofit.create(service)
     }
+
+
 }

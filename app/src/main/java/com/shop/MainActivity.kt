@@ -18,7 +18,25 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
     override fun initView() {
         pagerAdapter = MyViewPagerAdapter(supportFragmentManager, mViewModel.fragments)
         viewPager.adapter = pagerAdapter
-        viewPager.addOnPageChangeListener(MyPagerChangeListener())
+        //创建匿名的内部类
+        viewPager.addOnPageChangeListener(object:ViewPager.OnPageChangeListener{
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                nav_view.menu.getItem(position).setChecked(true)
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+        })
+        //底部导航的监听
         nav_view.setOnNavigationItemSelectedListener{ item->  //默认 it
             when(item.itemId){
                 R.id.navigation_home -> {
