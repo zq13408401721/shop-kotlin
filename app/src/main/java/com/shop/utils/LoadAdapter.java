@@ -31,7 +31,7 @@ public class LoadAdapter {
      * @param number
      */
     @BindingAdapter(value = {"app:cornerUrl","app:corner"},requireAll = true)
-    public static void loadCorner(ImageView img,String url,String number){
+    public static void loadCorner(ImageView img,String url,int number){
         RequestOptions options = new RequestOptions();
         options.transform(new RoundedCorners(Integer.valueOf(number)));
         Glide.with(img).load(url).apply(options).into(img);

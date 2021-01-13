@@ -18,7 +18,7 @@ data class HotBean(
     )
 
     data class X(
-            var corner:String = "20",
+            var corner:Int = 20,
             val author: String,
             val cagetory: String,
             val commID: Int,

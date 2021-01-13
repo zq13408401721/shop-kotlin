@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -33,8 +34,8 @@
             app:layout_constraintRight_toLeftOf="@id/img_two"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
-            app:corner="@{vmThreeImage.corner}"
-            app:imageUrl="@{vmThreeImage.filePathList.get(0).filePath}"/>
+            bind:imgUrl="@{vmThreeImage.filePathList.get(0).filePath}"
+            bind:corner="@{20}"/>
         <ImageView
             android:id="@+id/img_two"
             android:layout_width="0dp"
@@ -45,8 +46,8 @@
             app:layout_constraintRight_toLeftOf="@id/img_three"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            app:corner="@{vmThreeImage.corner}"
-            app:cornerUrl="@{vmThreeImage.filePathList.get(1).filePath}"/>
+            bind:imgUrl="@{vmThreeImage.filePathList.get(1).filePath}"
+            bind:corner="@{20}" />
         <ImageView
             android:id="@+id/img_three"
             android:layout_width="0dp"
@@ -56,7 +57,7 @@
             app:layout_constraintLeft_toRightOf="@id/img_two"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginRight="5dp"
-            app:corner="@{vmThreeImage.corner}"
-            app:cornerUrl="@{vmThreeImage.filePathList.get(2).filePath}"/>
+            bind:imgUrl="@{vmThreeImage.filePathList.get(2).filePath}"
+            bind:corner="@{20}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
