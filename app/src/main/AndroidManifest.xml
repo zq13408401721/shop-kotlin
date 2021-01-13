@@ -11,9 +11,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MyShop">
-        <activity android:name=".SplaseActivity"></activity>
-        <activity android:name=".test.TestActivity">
+        <activity android:name=".SplaseActivity" />
+        <activity android:name=".test.HotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

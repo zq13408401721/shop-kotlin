@@ -10,13 +10,14 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.shop.BR
 import com.shop.R
+import com.shop.model.Brand
 
 /**
  * adapter基类
  * layouts 布局id与界面绑定name的id匹配使用
  * adapter通过DataBindingUtil实现界面和数据的绑定   ViewDataBinding
  */
-open abstract class BaseAdapter<D>(val context: Context,val list:List<D>,val layouts:SparseArray<Int>,var clicks:SparseArray<Int>):RecyclerView.Adapter<BaseAdapter<D>.BaseVH>() {
+open abstract class BaseAdapter<D>(val context: Context,val list:List<D>,val layouts:SparseArray<Int>,var itemClick:IItemClick<D>):RecyclerView.Adapter<BaseAdapter<D>.BaseVH>() {
 
     /**
      * 用来初始化创建ViewHolder
@@ -35,12 +36,17 @@ open abstract class BaseAdapter<D>(val context: Context,val list:List<D>,val lay
         var layoutId = getItemViewType(position)
         //获取layout id所对应的BR的id
         var type = layouts.get(layoutId)
+        //界面组件显示数据的绑定
         holder.dataBinding.setVariable(type,list.get(position))
-        holder.dataBinding.root.tag = position
-        if(clicks.size() > 0){
-           var brname = clicks[0]
-        }
-        bindData(holder.dataBinding,list.get(position))
+        holder.dataBinding.root.tag = list.get(position)
+        //item的动态点击事件
+        /*holder.dataBinding.root.setOnClickListener {
+            if(itemClick != null){
+                itemClick.itemClick(list.get(position))
+            }
+        }*/
+
+        bindData(holder.dataBinding,list.get(position),layoutId)
     }
 
     override fun getItemCount(): Int {
@@ -56,7 +62,7 @@ open abstract class BaseAdapter<D>(val context: Context,val list:List<D>,val lay
      */
     protected abstract fun layoutId(position: Int):Int
 
-    protected abstract fun bindData(binding: ViewDataBinding,data:D)
+    protected abstract fun bindData(binding: ViewDataBinding,data:D,layId:Int)
 
     inner class BaseVH(val dataBinding:ViewDataBinding) :RecyclerView.ViewHolder(dataBinding.root)
 

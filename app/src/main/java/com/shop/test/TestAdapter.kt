@@ -9,6 +9,7 @@ import androidx.databinding.ViewDataBinding
 import com.bumptech.glide.Glide
 import com.shop.R
 import com.shop.base.BaseAdapter
+import com.shop.base.IItemClick
 import com.shop.model.Home
 
 
@@ -19,7 +20,7 @@ class TestAdapter(
         context: Context,
         list:List<Home.HotGoods>,
         layouts:SparseArray<Int>,
-        var clickEvts: SparseArray<Int> = SparseArray<Int>()
+        clickEvts: IItemClick<Home.HotGoods>
 )
     :BaseAdapter<Home.HotGoods>(context,list,layouts,clickEvts) {
 
@@ -34,7 +35,7 @@ class TestAdapter(
     /**
      * 刷新条目的数据
      */
-    override fun bindData(binding: ViewDataBinding, data: Home.HotGoods) {
+    override fun bindData(binding: ViewDataBinding, data: Home.HotGoods,layId:Int) {
         Glide.with(context).load(data.list_pic_url).into(binding.root.findViewById(R.id.img))
     }
 

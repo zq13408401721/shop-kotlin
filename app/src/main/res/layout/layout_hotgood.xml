@@ -6,15 +6,11 @@
         <variable
             name="vmHotGood"
             type="com.shop.model.Home.HotGoods" />
-        <variable
-            name="click"
-            type="com.shop.test.TestActivity.Click" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="@{(view)->click.itemClick(view)}">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/img"
