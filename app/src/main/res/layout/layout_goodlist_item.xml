@@ -29,6 +29,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img"
-            android:text="'￥'+@{good.retail_price}"/>
+            android:text="@{'￥'+good.retail_price}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

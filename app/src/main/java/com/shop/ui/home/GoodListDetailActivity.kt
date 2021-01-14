@@ -3,6 +3,7 @@ package com.shop.ui.home
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.util.SparseArray
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.shop.BR
@@ -43,7 +44,8 @@ class GoodListDetailActivity(
         categoryId = 0
         mDataBinding.layoutPrice.setTag(0)
         mDataBinding.txtAll.setTextColor(Color.parseColor("#ff0000"))
-        mDataBinding.setVariable(R.layout.activity_hotgood,BR.goodList)
+        mDataBinding.setVariable(BR.goodList,mViewModel.goodListData.value)
+        mDataBinding.setVariable(BR.clickEvt,ClickEvt())
     }
 
     override fun initVM() {
@@ -117,6 +119,17 @@ class GoodListDetailActivity(
         mDataBinding.layoutPrice.setTag(0)
     }
 
+    /**
+     * 重置点击事件
+     */
+    private fun resetClickEnable(view:View){
+        mDataBinding.txtAll.isClickable = true
+        mDataBinding.layoutPrice.isClickable = true
+        mDataBinding.txtSort.isClickable = true
+        view.isClickable = false
+
+    }
+
     inner class itemClick:IItemClick<GoodListData.Goods>{
         override fun itemClick(data: GoodListData.Goods) {
 
@@ -146,6 +159,7 @@ class GoodListDetailActivity(
         }
 
         fun clickAll(){
+            resetClickEnable(mDataBinding.txtAll)
             resetPriceState()
             mDataBinding.txtAll.setTextColor(Color.parseColor("#ff0000"))
             sort = Constants.DEFAULT
@@ -154,6 +168,7 @@ class GoodListDetailActivity(
         }
 
         fun clickSort(){
+            resetClickEnable(mDataBinding.txtSort)
             resetPriceState()
             mDataBinding.txtSort.setTextColor(Color.parseColor("#ff0000"))
             sort = Constants.CATEGORY
