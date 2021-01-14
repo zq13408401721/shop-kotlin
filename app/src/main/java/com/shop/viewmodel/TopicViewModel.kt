@@ -12,7 +12,7 @@ class TopicViewModel:BaseViewModel(Injection.repository){
      */
     fun getTopic(){
         viewModelScope.launch {
-            var result = repository.getTopic()
+            var result = repository.getTopic(1,2)
             if(result.errno == 0){
 
             }else if(result.errno == 665){

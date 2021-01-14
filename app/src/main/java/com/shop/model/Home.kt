@@ -1,21 +1,14 @@
 package com.shop.model
 
 data class Home(
-    val `data`: Data,
-    val errmsg: String,
-    val errno: Int
-
+        val banner: List<Banner>,
+        val brandList: List<Brand>,
+        val categoryList: List<Category>,
+        val channel: List<Channel>,
+        val hotGoodsList: List<HotGoods>,
+        val newGoodsList: List<NewGoods>,
+        val topicList: List<Topic>
 ){
-    data class Data(
-            val banner: List<Banner>,
-            val brandList: List<Brand>,
-            val categoryList: List<Category>,
-            val channel: List<Channel>,
-            val hotGoodsList: List<HotGoods>,
-            val newGoodsList: List<NewGoods>,
-            val topicList: List<Topic>
-    )
-
     data class HotGoods(
             val goods_brief: String,
             val id: Int,
@@ -97,4 +90,6 @@ data class Home(
             val name: String
     )
 }
+
+
 

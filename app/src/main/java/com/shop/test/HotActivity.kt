@@ -16,6 +16,8 @@ import com.shop.R
 import com.shop.base.IItemClick
 import com.shop.model.Home
 import com.shop.model.HotBean
+import com.shop.model.TopicData
+import com.shop.net.BaseResp
 import kotlinx.android.synthetic.main.activity_hot.*
 import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +36,9 @@ class HotActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hot)
         context = this
-        initData()
+        //initData()
+
+
     }
 
     private fun initData() {
@@ -56,9 +60,21 @@ class HotActivity : AppCompatActivity() {
 
     }
 
+    suspend fun load(){
+        GlobalScope.launch {
+
+        }
+    }
+
+
     suspend fun loadData(str:String) = withContext(Dispatchers.IO){
         var url = URL(str).readText(charset("utf-8"))
         return@withContext Gson().fromJson<HotBean>(url, HotBean::class.java)
+    }
+
+    suspend fun loadTopic(str:String) = withContext(Dispatchers.IO){
+        var url = URL(str).readText(charset("utf-8"))
+        return@withContext Gson().fromJson<TopicData>(url, TopicData::class.java)
     }
 
     inner class ItemClickImpl:IItemClick<HotBean.X>{

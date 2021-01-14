@@ -37,8 +37,15 @@ class SystemRepository {
     /**
      * 获取专题数据
      */
-    suspend fun getTopic() = withContext(Dispatchers.IO){
-        serviceApi.getTopic()
+    suspend fun getTopic(page:Int,size:Int) = withContext(Dispatchers.IO){
+        serviceApi.getTopic(page,size)
+    }
+
+    /**
+     * 获取商品列表数据
+     */
+    suspend fun getGoodList(map:HashMap<String,String>) = withContext(Dispatchers.IO){
+        serviceApi.getGoodList(map)
     }
 
 }

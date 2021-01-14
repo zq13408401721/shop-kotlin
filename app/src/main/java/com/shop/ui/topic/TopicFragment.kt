@@ -19,6 +19,7 @@ class TopicFragment:BaseFragment<TopicViewModel,FragmentTopicBinding>(R.layout.f
     }
 
     override fun initData() {
+        mViewModel.getTopic()
     }
 
     override fun initVariable() {

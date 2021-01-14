@@ -47,7 +47,7 @@ class TestActivity : AppCompatActivity() {
                 var array = SparseArray<Int>()
                 array.put(R.layout.layout_hotgood,BR.vmHotGood)
                 array.put(R.layout.layout_hotgood_noimage,BR.vmHotGoodNoImage)
-                adapter = TestAdapter(context,home.data.hotGoodsList,array,ItemClick())
+                adapter = TestAdapter(context,home.hotGoodsList,array,ItemClick())
                 recy.adapter = adapter
             })
         }

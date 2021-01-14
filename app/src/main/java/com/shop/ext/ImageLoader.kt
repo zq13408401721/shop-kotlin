@@ -32,5 +32,19 @@ class ImageLoader{
                 Log.i("TAG","加载图片的路径为空")
             }
         }
+
+        /**
+         * 普通的加载图片
+         */
+        @BindingAdapter("bind:imageUrl")
+        @JvmStatic
+        fun loadImage(img:ImageView,url:String){
+            if(!TextUtils.isEmpty(url)){
+                Glide.with(img).load(url).into(img)
+            }else{
+                Log.i("TAG","加载图片地址不正确")
+            }
+        }
+
     }
 }
