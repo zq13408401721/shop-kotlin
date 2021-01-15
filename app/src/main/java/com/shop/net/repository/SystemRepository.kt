@@ -48,4 +48,20 @@ class SystemRepository {
         serviceApi.getGoodList(map)
     }
 
+    /**
+     * 分类数据的获取
+     */
+    suspend fun getSortData(id:String) = withContext(Dispatchers.IO){
+        serviceApi.getSortData(id)
+    }
+
+    /**
+     * 分类对应的详情数据
+     */
+    suspend fun getCatalogData(id:String) = withContext(Dispatchers.IO){
+        serviceApi.getCatalogData(id)
+    }
+
+
+
 }

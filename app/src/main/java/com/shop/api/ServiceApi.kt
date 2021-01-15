@@ -1,9 +1,6 @@
 package com.shop.api
 
-import com.shop.model.GoodListData
-import com.shop.model.HomeData
-import com.shop.model.Topic
-import com.shop.model.TopicData
+import com.shop.model.*
 import com.shop.net.BaseResp
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -27,6 +24,14 @@ interface ServiceApi {
     //商品列表详情
     @GET("goods/list")
     suspend fun getGoodList(@QueryMap map:HashMap<String,String>):BaseResp<GoodListData>
+
+    //分类数据
+    @GET("catalog/index")
+    suspend fun getSortData(@Query("id") id:String):BaseResp<SortData>
+
+    //分类对应的详情数据
+    @GET("catalog/current")
+    suspend fun getCatalogData(@Query("id") id:String):BaseResp<SortListData>
 
 
 }
