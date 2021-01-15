@@ -35,8 +35,11 @@ class SortFragment:BaseFragment<SortViewModel, FragmentSortBinding>(
 
     override fun initView() {
 
+        //竖导航tab的点击监听
         mDataBinding.verticaltablayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabView?, position: Int) {
+                mViewModel.updateCurrentTab(mViewModel.sortData.value!!.categoryList.get(position))
+                mDataBinding.setVariable(BR.vmSortListData,mViewModel)
                 var id = mViewModel.sortData.value!!.categoryList.get(position).id
                 mViewModel.getSortListData(id.toString())
             }
@@ -60,11 +63,19 @@ class SortFragment:BaseFragment<SortViewModel, FragmentSortBinding>(
     override fun initVM() {
         //竖导航 加载数据回来的监听
         mViewModel.sortData.observe(this, Observer {
+            //动态的添加竖导航tab
             for (item in it.categoryList) {
-                mDataBinding.verticaltablayout.addTab(QTabView(context).setBadge(
-                    ITabView.TabBadge.Builder().setBadgeText(item.name).build()))
+                //创建显示tab的样式组件
+                var tabTitle = ITabView.TabTitle.Builder().setContent(item.name).build()
+                //创建tab的显示View，并且添加到竖导航
+                mDataBinding.verticaltablayout.addTab(QTabView(context).setTitle(tabTitle))
             }
-            mDataBinding.setVariable(BR.vmSortListData,mViewModel.sortData.value!!.currentCategory)
+            mDataBinding.setVariable(BR.vmSortListData,mViewModel)
+            //默认请求第一个tab对应的列表数据
+            if(it.categoryList.size > 0){
+                mViewModel.updateCurrentTab(mViewModel.sortData.value!!.categoryList.get(0))
+                mViewModel.getSortListData(it.categoryList.get(0).id.toString())
+            }
         })
 
         //竖导航列表详情数据
@@ -77,12 +88,14 @@ class SortFragment:BaseFragment<SortViewModel, FragmentSortBinding>(
     }
 
     override fun initData() {
+        mViewModel.getSortData("0")
     }
 
     override fun initVariable() {
     }
 
-    inner class MyTabAdapter:TabAdapter{
+    //adapter 和 viewpager结合使用
+    inner class MyTabAdapter:TabAdapter {
         override fun getCount(): Int {
             return sortList.size
         }

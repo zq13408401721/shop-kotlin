@@ -4,10 +4,10 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.shop.model.CurrentCategory"/>
+        <import type="com.shop.viewmodel.sort.SortViewModel"/>
         <variable
             name="vmSortListData"
-            type="CurrentCategory" />
+            type="SortViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,7 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        bind:imageUrl="@{vmSortListData.banner_url}"/>
+                        bind:imageUrl="@{vmSortListData.bannerUrl}"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                         app:layout_constraintRight_toRightOf="parent"
                         android:textColor="@color/white"
                         android:textSize="18sp"
-                        android:text="@{vmSortListData.front_desc}"/>
+                        android:text="@{vmSortListData.desc}"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

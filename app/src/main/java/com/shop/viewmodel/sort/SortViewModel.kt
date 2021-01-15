@@ -14,6 +14,21 @@ class SortViewModel:BaseViewModel(Injection.repository) {
 
     var sortDataList:MutableLiveData<SortListData> = MutableLiveData()
 
+
+    lateinit var bannerUrl:String //当前竖导航选中的tab所对应的banner数据
+    lateinit var desc:String
+    lateinit var name:String
+
+
+    /**
+     * 刷新当前的tab所对应的数据
+     */
+    fun updateCurrentTab(data:SortData.Category){
+        bannerUrl = data.wap_banner_url
+        desc = data.front_desc
+        name=data.name
+    }
+
     /**
      * 获取竖导航列表
      */

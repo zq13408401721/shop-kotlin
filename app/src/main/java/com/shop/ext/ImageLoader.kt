@@ -22,15 +22,15 @@ class ImageLoader{
          */
         @BindingAdapter(value = ["bind:imgUrl","bind:corner"], requireAll = true)
         @JvmStatic
-        fun loadCornerImg(img: ImageView, url: String, corner: Int){
+        fun loadCornerImg(img: ImageView, url: String?, corner: Int){
+            if(url.isNullOrEmpty()){
+                Log.i("TAG","数据还没初始化")
+                return
+            }
             var corNum = if(corner == 0) 1 else corner
             val options = RequestOptions()
             options.transform(CenterCrop(),RoundedCorners(corNum))
-            if(!TextUtils.isEmpty(url)){
-                Glide.with(img).load(url).apply(options).into(img)
-            }else{
-                Log.i("TAG","加载图片的路径为空")
-            }
+            Glide.with(img).load(url).apply(options).into(img)
         }
 
         /**
@@ -38,12 +38,12 @@ class ImageLoader{
          */
         @BindingAdapter("bind:imageUrl")
         @JvmStatic
-        fun loadImage(img:ImageView,url:String){
-            if(!TextUtils.isEmpty(url)){
-                Glide.with(img).load(url).into(img)
-            }else{
-                Log.i("TAG","加载图片地址不正确")
+        fun loadImage(img:ImageView,url:String?){
+            if(url.isNullOrEmpty()){
+                Log.i("TAG","数据还没初始化")
+                return
             }
+            Glide.with(img).load(url).into(img)
         }
 
     }
