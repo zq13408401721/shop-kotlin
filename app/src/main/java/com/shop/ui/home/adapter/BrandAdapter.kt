@@ -20,6 +20,6 @@ class BrandAdapter(
     }
 
     override fun bindData(binding: ViewDataBinding, data: Brand, layId: Int) {
-
+        binding.setVariable(BR.click,itemClick)
     }
 }

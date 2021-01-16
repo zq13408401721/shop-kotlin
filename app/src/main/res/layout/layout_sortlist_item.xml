@@ -5,14 +5,21 @@
 
     <data>
         <import type="com.shop.model.SubCategory"/>
+        <import type="com.shop.base.IItemClick"/>
+        <!--绑定界面需要的数据-->
         <variable
             name="vmCategory"
             type="SubCategory" />
+        <!--绑定点击事件-->
+        <variable
+            name="sortClick"
+            type="IItemClick" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{(view)->sortClick.itemClick(view.tag)}">
 
         <ImageView
             android:id="@+id/img"

@@ -4,14 +4,19 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.shop.base.IItemClick"/>
         <variable
             name="good"
             type="com.shop.model.GoodListData.Goods" />
+        <variable
+            name="goodListClick"
+            type="IItemClick" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{(view)->goodListClick.itemClick(view.tag)}">
 
         <ImageView
             android:id="@+id/img"

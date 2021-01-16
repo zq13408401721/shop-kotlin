@@ -1,5 +1,6 @@
 package com.shop.ui.sort
 
+import android.util.Log
 import android.util.SparseArray
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -39,7 +40,7 @@ class SortFragment:BaseFragment<SortViewModel, FragmentSortBinding>(
         mDataBinding.verticaltablayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabView?, position: Int) {
                 mViewModel.updateCurrentTab(mViewModel.sortData.value!!.categoryList.get(position))
-                mDataBinding.setVariable(BR.vmSortListData,mViewModel)
+                mDataBinding.vmSortListData = mViewModel
                 var id = mViewModel.sortData.value!!.categoryList.get(position).id
                 mViewModel.getSortListData(id.toString())
             }
@@ -70,7 +71,8 @@ class SortFragment:BaseFragment<SortViewModel, FragmentSortBinding>(
                 //创建tab的显示View，并且添加到竖导航
                 mDataBinding.verticaltablayout.addTab(QTabView(context).setTitle(tabTitle))
             }
-            mDataBinding.setVariable(BR.vmSortListData,mViewModel)
+            //mDataBinding.setVariable(BR.vmSortListData,mViewModel)
+            mDataBinding.vmSortListData = mViewModel
             //默认请求第一个tab对应的列表数据
             if(it.categoryList.size > 0){
                 mViewModel.updateCurrentTab(mViewModel.sortData.value!!.categoryList.get(0))
@@ -119,8 +121,8 @@ class SortFragment:BaseFragment<SortViewModel, FragmentSortBinding>(
     }
 
     inner class ItemClick:IItemClick<SubCategory>{
-        override fun itemClick(data: SubCategory) {
-            TODO("Not yet implemented")
+        override public fun itemClick(data: SubCategory) {
+            Log.i("TAG",data.toString());
         }
 
     }

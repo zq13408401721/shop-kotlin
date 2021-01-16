@@ -3,6 +3,7 @@ package com.shop.ui.home.adapter
 import android.content.Context
 import android.util.SparseArray
 import androidx.databinding.ViewDataBinding
+import com.shop.BR
 import com.shop.R
 import com.shop.base.BaseAdapter
 import com.shop.base.IItemClick
@@ -21,5 +22,6 @@ class GoodListAdapter(
     }
 
     override fun bindData(binding: ViewDataBinding, data: GoodListData.Goods, layId: Int) {
+        binding.setVariable(BR.goodListClick,itemClick)
     }
 }

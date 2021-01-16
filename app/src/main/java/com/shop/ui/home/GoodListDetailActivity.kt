@@ -2,6 +2,7 @@ package com.shop.ui.home
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.util.Log
 import android.util.SparseArray
 import android.view.View
 import androidx.lifecycle.Observer
@@ -132,7 +133,7 @@ class GoodListDetailActivity(
 
     inner class itemClick:IItemClick<GoodListData.Goods>{
         override fun itemClick(data: GoodListData.Goods) {
-
+            Log.i("TAG",data.toString())
         }
     }
 
