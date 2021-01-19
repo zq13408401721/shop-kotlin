@@ -34,6 +34,7 @@ interface ServiceApi {
 
     //登录
     @POST("auth/login")
+    @FormUrlEncoded
     suspend fun login(@Field("username") username:String,@Field("password") password:String):BaseResp<LoginData>
 
     //获取购物车数据

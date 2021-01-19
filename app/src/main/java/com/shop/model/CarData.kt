@@ -24,7 +24,7 @@ data class Cart(
     val id: Int,
     val list_pic_url: String,
     val market_price: Int,
-    val number: Int,
+    var number: Int,
     val product_id: Int,
     val retail_price: Int,
     val session_id: String,
