@@ -2,7 +2,9 @@ package com.shop.ui.home.adapter
 
 import android.content.Context
 import android.util.SparseArray
+import android.widget.Button
 import androidx.databinding.ViewDataBinding
+import com.shop.BR
 import com.shop.R
 import com.shop.base.BaseAdapter
 import com.shop.base.IItemClick
@@ -22,5 +24,6 @@ class HotGoodAdapter(
     }
 
     override fun bindData(binding: ViewDataBinding, data: HotGoods, layId: Int) {
+        binding.setVariable(BR.goodListClick,itemClick)
     }
 }

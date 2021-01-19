@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MyShop">
-        <activity android:name=".SplaseActivity">
+        <activity android:name=".test.VideoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

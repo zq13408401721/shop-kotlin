@@ -1,11 +1,9 @@
 package com.shop.api
 
+import com.bumptech.glide.request.BaseRequestOptions
 import com.shop.model.*
 import com.shop.net.BaseResp
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
-import retrofit2.http.QueryMap
+import retrofit2.http.*
 import java.util.HashMap
 
 interface ServiceApi {
@@ -32,6 +30,16 @@ interface ServiceApi {
     //分类对应的详情数据
     @GET("catalog/current")
     suspend fun getCatalogData(@Query("id") id:String):BaseResp<SortListData>
+
+
+    //登录
+    @POST("auth/login")
+    suspend fun login(@Field("username") username:String,@Field("password") password:String):BaseResp<LoginData>
+
+    //获取购物车数据
+    @GET("cart/index")
+    suspend fun getCar():BaseResp<CarData>
+
 
 
 }

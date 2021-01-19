@@ -63,5 +63,20 @@ class SystemRepository {
     }
 
 
+    /**
+     * 登录接口
+     */
+    suspend fun login(username:String,password:String) = withContext(Dispatchers.IO){
+        serviceApi.login(username,password)
+    }
+
+    /**
+     * 购物车数据获取
+     */
+    suspend fun getCar() = withContext(Dispatchers.IO){
+        serviceApi.getCar()
+    }
+
+
 
 }

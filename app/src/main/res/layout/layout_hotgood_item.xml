@@ -8,11 +8,16 @@
         <variable
             name="vmHotGood"
             type="HotGoods" />
+        <import type="com.shop.base.IItemClick"/>
+        <variable
+            name="hotGoodClick"
+            type="IItemClick" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{(view)->hotGoodClick.itemClick(view.tag)}">
 
         <ImageView
             android:id="@+id/img_hotgood"
