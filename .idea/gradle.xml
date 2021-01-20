@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/BaseMVVM" />
+            <option value="$PROJECT_DIR$/MyFramework" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
